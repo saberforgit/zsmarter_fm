@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="zsmarter-video-videoplay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>videoplay</name>
+    <js-module name="zsmarter-video-videoplay" src="www/videoplay.js">
+        <clobbers target="zsmarter.doubleinput.videoplay" />
+    </js-module>
+ <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+	   <feature name="VideoPlay">
+        <param name="android-package" value="com.zsmarter.doubleinput.videoplay.VideoPlay" />
+    </feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    </config-file>  
+	  <config-file target="AndroidManifest.xml" parent="application">
+		  <activity
+            android:name="com.zsmarter.doubleinput.videoplay.VideoViewDemo"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+			     <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        </config-file>
+        <source-file src="src/android/com/zsmarter/doubleinput/videoplay" target-dir="src/com/zsmarter/doubleinput/"/>
+		<source-file src="src/android/io/vov" target-dir="src/io/"/>
+		<source-file src="src/android/res/drawable/ic_dashboard_black_24dp.xml" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/ic_home_black_24dp.xml" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/ic_notifications_black_24dp.xml" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/mediacontroller_button.xml" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_control_selector_holo.xml" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_progress_horizontal_holo_dark.xml" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/mediacontroller_pause.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/mediacontroller_play.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_control_disabled_holo.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_control_focused_holo.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_control_normal_holo.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_control_pressed_holo.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_primary_holo.9.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_secondary_holo.9.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/drawable/scrubber_track_holo_dark.9.png" target-dir="res/drawable/"/>
+		<source-file src="src/android/res/layout/mediacontroller.xml" target-dir="res/layout/"/>
+		<source-file src="src/android/res/layout/videoview.xml" target-dir="res/layout/"/>
+		<source-file src="src/android/res/raw/libarm.so" target-dir="res/raw/"/>
+		<source-file src="src/android/res/values/videoplay_colors.xml" target-dir="res/values/"/>
+		<source-file src="src/android/res/values/videoplay_dimens.xml" target-dir="res/values/"/>
+		<source-file src="src/android/res/values/videoplay_strings.xml" target-dir="res/values/"/>
+		<source-file src="src/android/res/values/videoplay_styles.xml" target-dir="res/values/"/>
+		<source-file src="src/android/res/values/vitamio_colors.xml" target-dir="res/values/"/>
+		<source-file src="src/android/res/values/vitamio_strings.xml" target-dir="res/values/"/>
+		<source-file src="src/android/res/values/vitamio_styles.xml" target-dir="res/values/"/>
+		<source-file src="libs/armeabi/libvinit.so" target-dir="libs/armeabi/"/>
+		<source-file src="libs/armeabi-v7a/libvinit.so" target-dir="libs/armeabi-v7a/"/>
+    </platform>
+</plugin>

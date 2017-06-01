@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="zsmarter-doubleinput-watermark" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>watermark</name>
+    <js-module name="zsmarter-doubleinput-watermark" src="www/watermark.js">
+        <clobbers target="zsmarter.watermark" />
+    </js-module>
+ <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+			<feature name="WaterMark">
+				<param name="android-package" value="com.zsmarter.watermark.WaterMark" />
+				<param name="onload" value="true" />
+			</feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+    </config-file>  
+        <source-file src="src/android/com/zsmarter/watermark" target-dir="src/com/zsmarter/"/>
+    </platform>
+</plugin>

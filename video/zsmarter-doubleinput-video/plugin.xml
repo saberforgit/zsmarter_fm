@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    id="zsmarter-doubleinput-video"
+    version="2.4.1-dev">
+    <name>video</name>
+   
+    <js-module src="www/video.js" name="video">
+        <clobbers target="zsmarter.doubleinput.video" />
+    </js-module>
+
+   
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+                <feature name="Video">
+					<param name="android-package" value="com.zsmarter.doubleinput.videorecord.VideoRecord" />
+			</feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+           <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="application">
+         
+		     <activity
+            android:name="com.zsmarter.doubleinput.videorecord.VideoRecordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        </config-file>
+
+        <source-file src="src/android/com/zsmarter/doubleinput/videorecord" target-dir="src/com/zsmarter/doubleinput/" />
+        <source-file src="src/android/com/zsmarter/doubleinput/utils" target-dir="src/com/zsmarter/doubleinput/" />
+        <source-file src="src/android/res/drawable/start.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/drawable/stop.png" target-dir="res/drawable/" />
+		 <source-file src="src/android/res/drawable/change_camera.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout/" />
+        <source-file src="src/android/res/layout/movie_recorder_view.xml" target-dir="res/layout/" />
+        <source-file src="src/android/res/values/zs_video_attrs.xml" target-dir="res/values/" />
+      
+      </platform>
+
+   
+
+</plugin>
