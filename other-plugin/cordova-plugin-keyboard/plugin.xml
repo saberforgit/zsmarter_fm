@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova.plugins.keyboard" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova.plugins.keyboard</name>
+    <js-module name="cordova.plugins.keyboard" src="www/keyboard.js">
+        <clobbers target="cordova.plugins.keyboard" />
+    </js-module>
+	
+ <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+          <feature name="KeyBoard">
+        <param name="android-package" value="com.zsmarter.keyboard.KeyBoard" />
+    </feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+
+    </config-file>  
+           <config-file target="AndroidManifest.xml" parent="/manifest/application">
+           <activity
+            android:theme="@style/FullTransparent"
+            android:name="com.zsmarter.keyboard.KeyBoardActivity"/>
+    </config-file>
+        <source-file src="src/android/com/keyboard" target-dir="src/com/zsmarter/"/>
+          <source-file src="src/android/res/anim" target-dir="res/"/>
+              <source-file src="src/android/res/drawable/back.png" target-dir="res/drawable/"/>
+               <source-file src="src/android/res/drawable/del.png" target-dir="res/drawable/"/>
+                <source-file src="src/android/res/drawable/password.png" target-dir="res/drawable/"/>
+                 <source-file src="src/android/res/drawable/ripple_bg.xml" target-dir="res/drawable/"/>
+                  <source-file src="src/android/res/drawable/rl_input_item_del.xml" target-dir="res/drawable/"/>
+                   <source-file src="src/android/res/drawable/rl_input_item.xml" target-dir="res/drawable/"/>
+                       <source-file src="src/android/res/drawable/rl_input.xml" target-dir="res/drawable/"/>
+                       <source-file src="src/android/res/drawable/rounded_corners.xml"  target-dir="res/drawable/"/>
+                  <source-file src="src/android/res/layout/keyboard.xml" target-dir="res/layout/"/>
+                      <source-file src="src/android/res/values/colors-keyboard.xml" target-dir="res/values/"/>
+                      <source-file src="src/android/res/values/styles-keyboard.xml" target-dir="res/values/"/>
+                      <source-file src="src/android/res/values/dimens-keyboard.xml" target-dir="res/values/"/>
+					    <source-file src="libs/cgnb-core-pass.jar" target-dir="libs/"/>
+    </platform>
+</plugin>

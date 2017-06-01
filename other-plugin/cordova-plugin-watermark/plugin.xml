@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-watermark" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova.plugins.card</name>
+    <js-module name="cordova.plugins.watermark" src="www/watermark.js">
+        <clobbers target="navigator.watermark" />
+    </js-module>
+ <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+			<feature name="WaterMark">
+				<param name="android-package" value="com.zsmarter.WaterMask.WaterMark" />
+				<param name="onload" value="true" />
+			</feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+    </config-file>  
+        <source-file src="src/android/com/zsmarter/utils" target-dir="src/com/zsmarter/"/>
+        <source-file src="src/android/com/zsmarter/WaterMask" target-dir="src/com/zsmarter/"/>
+    </platform>
+</plugin>
